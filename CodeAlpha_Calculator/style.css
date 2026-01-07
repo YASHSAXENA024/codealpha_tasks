@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.4s;
+}
+
+/* LIGHT & DARK MODE */
+body.light {
+    background: #f2f2f2;
+}
+body.dark {
+    background: #121212;
+}
+
+.calculator {
+    width: 320px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #222;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* HEADER */
+.top {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#themeToggle {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* DISPLAY */
+#display {
+    background: #000;
+    color: #ffd580; /* warm light */
+    font-size: 2.5rem;
+    padding: 15px;
+    text-align: right;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 0 15px rgba(255,200,100,0.5);
+}
+
+/* BUTTON GRID */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* BUTTON STYLE */
+button {
+    padding: 18px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(145deg, #333, #111);
+    color: white;
+    box-shadow: 0 6px #000;
+    transition: 0.1s;
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #000;
+}
+
+/* OPERATORS */
+.op {
+    background: linear-gradient(145deg, #ff9800, #cc7a00);
+}
+
+/* EQUAL */
+.equal {
+    background: linear-gradient(145deg, #4caf50, #2e7d32);
+    grid-row: span 2;
+}
+
+/* ZERO */
+.zero {
+    grid-column: span 2;
+}
+
+/* DARK MODE */
+body.dark .calculator {
+    background: #1a1a1a;
+}
+
+/* NEON GLOW ANIMATION */
+@keyframes neonGlow {
+    0% {
+        box-shadow:
+            0 0 5px #ff9800,
+            0 0 10px #ff9800,
+            0 0 20px #ff9800;
+    }
+    50% {
+        box-shadow:
+            0 0 10px #ffb74d,
+            0 0 25px #ffb74d,
+            0 0 50px #ffb74d;
+    }
+    100% {
+        box-shadow:
+            0 0 5px #ff9800,
+            0 0 10px #ff9800,
+            0 0 20px #ff9800;
+    }
+}
+
+/* APPLY GLOW TO DISPLAY */
+#display {
+    animation: neonGlow 2.5s infinite alternate;
+}
+
+/* BUTTON HOVER NEON */
+button:hover {
+    box-shadow:
+        0 0 10px rgba(255, 200, 100, 0.8),
+        0 0 20px rgba(255, 150, 0, 0.6);
+}
